@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+         type="text/css" />
+      <script src="https://kit.fontawesome.com/7b4d2fea99.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="/public/assets/css/burger_style.css" type="text/css" />
+      <title>MVC Burgers!</title>
+   </head>
+
+   <body>
+      <h1 class="text-center">Eat-Da-Burger!</h1>
+      <div style="text-align: center;" class="container mx-auto">
+         <div class="mx-auto"><i class="fas fa-hamburger fa-5x"></i></div>
+      </div>
+      {{{ body }}}
+      <form class="create-form text-center">
+         <h3>Burger Name:</h3>
+         <div class="form-group">
+            <label for="burger"></label>
+            <textarea id="burger" name="name" placeholder="Write something.." style="height:100px; width:300px;"></textarea>
+         </div>
+
+         <button type="submit">Add Burger</button>
+         <p>Enter a burger you want to eat and click the Add Burger button</p>
+      </form>
+      
+   </body>
+
+</html>

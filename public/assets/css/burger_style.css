@@ -1,0 +1,10 @@
+body, html { 
+   background-color: rgb(224, 178, 91);
+}
+
+li {
+   padding: 5px;
+   margin: 5px;
+   background: white;
+   background-color: #ffffff;
+}
