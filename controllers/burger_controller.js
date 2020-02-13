@@ -8,13 +8,20 @@ router.get("/", function(req, res) {
       var burgerObject = { 
          burger: data
       };
-      console.log(data)
-      console.log(burgerObject);
       res.render('index', burgerObject);
    });
 })
 
-// router.post
+router.post("/api/burgers", function (req, res) {
+   burger.newBurger([
+      "burger_name", "devoured"
+   ], [
+      req.body.burger_name, 0
+   ], function (result) {
+      console.log("burger_controller " + result)
+      res.json({ burger_id: result.insertId})
+   })
+})
 
 // router.put
 

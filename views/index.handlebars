@@ -4,11 +4,10 @@
          <ol>
             {{#each burger}}
                {{#unless devoured}}
-
                   <li>
                      {{this.burger_name}}
 
-                     <button class="change-devoured" data-id="{{this.buger_id}}" data-newBurger="{{this.devoured}}">
+                     <button class="change-devoured" data-id="{{this.burger_id}}" data-devoured="{{this.devoured}}">
                         Devour!
                      </button>
 
@@ -21,7 +20,6 @@
          <ul>
            {{#each burger}}
                {{#if devoured}}
-
                   <li>
                      {{this.burger_name}}
                   </li>
@@ -36,7 +34,7 @@
    <h3>Burger Name:</h3>
    <div class="form-group">
       <label for="burger"></label>
-      <textarea id="burger" name="name" placeholder="Write something.." style="height:100px; width:300px;"></textarea>
+      <textarea id="burger" name="burger_name" placeholder="Write something.." style="height:100px; width:300px;"></textarea>
    </div>
 
    <button type="submit">Add Burger</button>

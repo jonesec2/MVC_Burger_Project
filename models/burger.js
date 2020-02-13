@@ -5,13 +5,14 @@ var burger = {
       orm.selectAll("burgers", function(res) {
          cb(res);
       }) 
+   },
+   newBurger: function (columns, values, cb) {
+      orm.insertOne("burgers" , columns, values, function(res) {
+         console.log("burger " +res)
+         cb(res)
+      });
    }
    // ,
-   // insertOne: function () {
-   //    orm.insertOne( {
-
-   //    })
-   // },
    // updateOne: function () {
    //    orm.updateOne( {
 
