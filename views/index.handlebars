@@ -1,21 +1,30 @@
-<div class="container">
+<div class="container mx-auto mt-3 pt-3" style="max-width: 720px;">
    <div class="row">
-      <div class="col-6 col-sm-12">
+      <div class="col-6">
          <ol>
             {{#each burger}}
-            {{!try "unless" if "if" doesn't work}}
-               {{#if burgers}}
-                  {{> burgers/burger-block devoured=false}}
-               {{/if}}
+               {{#unless devoured}}
+
+                  <li>
+                     {{this.burger_name}}
+
+                     <button class="change-devoured" data-id="{{this.buger_id}}" data-newBurger="{{this.devoured}}">
+                        Devour!
+                     </button>
+
+                  </li>
+               {{/unless}}
             {{/each}}
          </ol>
       </div>
-      <div class="col-6 col-sm-12">
+      <div class="col-6">
          <ul>
            {{#each burger}}
-           {{!try "unless" if "if" doesn't work}}
-               {{#if burgers}}
-                  {{> burgers/burger-block devoured=true}}
+               {{#if devoured}}
+
+                  <li>
+                     {{this.burger_name}}
+                  </li>
                {{/if}}
             {{/each}}
          </ul>

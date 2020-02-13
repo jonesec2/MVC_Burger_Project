@@ -16,13 +16,38 @@
          <div class="mx-auto"><i class="fas fa-hamburger fa-5x"></i></div>
       </div>
       {{{ body }}}
+      <div class="container">
+         <div class="row">
+            <div class="col-6">
+               <ol>
+                  {{#each burger}}
+                  {{!try "unless" if "if" doesn't work}}
+                     {{!-- {{#if devoured}}
+                        {{> burgers/burger-block devoured=false}}
+                     {{/if}} --}}
+                  {{/each}}
+               </ol>
+            </div>
+            <div class="col-6">
+               <ul>
+                 {{#each burger}}
+                 {{!try "unless" if "if" doesn't work}}
+                     {{#if devoured}}
+                        {{> burgers/burger-block devoured=true}}
+                     {{/if}}
+                  {{/each}}
+               </ul>
+            </div>
+         </div>
+      </div>
+      
       <form class="create-form text-center">
          <h3>Burger Name:</h3>
          <div class="form-group">
             <label for="burger"></label>
             <textarea id="burger" name="name" placeholder="Write something.." style="height:100px; width:300px;"></textarea>
          </div>
-
+      
          <button type="submit">Add Burger</button>
          <p>Enter a burger you want to eat and click the Add Burger button</p>
       </form>
