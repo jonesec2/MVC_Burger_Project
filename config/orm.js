@@ -6,7 +6,7 @@ function printQuestionMarks(num) {
    for (var i = 0; i < num; i++) {
       arr.push("?");
    }
-
+   console.log(arr.toString())
    return arr.toString();
 }
 
@@ -46,10 +46,11 @@ const orm = {
       queryString += ") ";
 
       console.log("orm " + queryString);
-      connection.query(queryString, function(err, result) {
+      connection.query(queryString, values, function(err, result) {
          if (err) {
             throw err;
          }
+         console.log("ormRes " + result)
          cb(result)
       });
 

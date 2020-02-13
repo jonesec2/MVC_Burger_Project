@@ -16,7 +16,6 @@ $(function () {
          data: newBurger
       }).then(
          function () {
-            console.log("created new " + data);
             // Reload the page to get the updated list
             location.reload();
          }
