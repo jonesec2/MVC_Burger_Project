@@ -1,8 +1,8 @@
 $(function () {
+
+   // POST function
    $(".create-form").on("submit", function (event) {
-      // Make sure to preventDefault on a submit event.
       event.preventDefault();
-      // console.log($("#burger").val().trim())
 
       var newBurger = {
          burger_name: $("#burger").val().trim(),
@@ -10,7 +10,7 @@ $(function () {
       };
       console.log(newBurger)
 
-      // Send the POST request.
+      // sending POST request from client to server
       $.ajax("/api/burgers", {
          type: "POST",
          data: newBurger
@@ -21,4 +21,29 @@ $(function () {
          }
       );
    });
+
+   // PUT function
+
+   $('.change-devoured').on("click", function(event) {
+      var id = $(this).data("id"); // will equal id on button
+      // var devouredState = $(this).data("devoured"); // will always = 0 
+
+      // setting new var equal to id/devoured of burger clicked
+      var nowDevoured = {
+         burger_id: id,
+         // devoured: 1
+      };
+      console.log(nowDevoured)
+      // sending PUT request from client to server
+      $.ajax("/api/burgers/" + id, {
+         type: "PUT",
+         data: nowDevoured
+      }).then(
+         function () {
+            console.log("devoured", nowDevoured)
+            location.reload();
+         }
+      )
+   });
 });
+

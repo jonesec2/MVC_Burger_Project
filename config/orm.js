@@ -10,22 +10,6 @@ function printQuestionMarks(num) {
    return arr.toString();
 }
 
-// function objToSql(ob) {
-//    var arr = [];
-
-//    for (var key in ob) {
-//       var value = ob[key];
-//       if (Object.hasOwnProperty.call(ob, key)) {
-//          if (typeof value === "string" && value.indexOf(" ") >= 0) {
-//             value = "'" + value + "'";
-//          }
-//          arr.push(key + "=" + value);
-//       }
-//    }
-//    return arr.toString();
-// }
-
-
 const orm = {
    selectAll: function (tableInput, cb) {
       var queryString = "Select * from " + tableInput + ";";
@@ -50,15 +34,27 @@ const orm = {
          if (err) {
             throw err;
          }
-         console.log("ormRes " + result)
-         cb(result)
+         console.log("ormRes " + result);
+         cb(result);
       });
 
+   },
+   // Update existing record and send info back to burger
+   // parameter to receive values from burger
+   updateOne: function (table, setColumn, devoured, whereColumn, id, cb) {
+      // creating sql query
+      var queryString = "Update " + table + " Set " + setColumn + " = " + devoured +  " where " + whereColumn + " = " + id +";";
+      // sending sql query
+      console.log(queryString)
+      connection.query(queryString, function(err, result) {
+         if (err) {
+            throw err;
+         }
+         console.log("ormRes", result);
+         // returning results to burger
+         cb(result);
+      } )
    }
-   // ,
-   // updateOne: function () {
-
-   // }
 
 }
 
