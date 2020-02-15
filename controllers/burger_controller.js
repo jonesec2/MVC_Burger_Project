@@ -29,32 +29,52 @@ router.put("/api/burgers/:id", function (req, res) {
 
    // these are the parameters to send to burger
    burger.updateBurger(
-   // value for burger parameter setColumn
-   [
-      "devoured"
-   ],
-   // value for burger parameter devoured 
-   [
-      1
-   ],
-   // value for burger parameter whereColumn
-   [
-      "burger_id"
-   ],
-   // value for burger parameter id
-   [
-      id
-   ],
-   // creating call back function for burger parameter cb 
-   function (result) {
-      if (result.changedRows === 0) {
-         return res.status(404).end();
-      }
-      else {
-         res.status(200).end();
-      }
-   });
+      // value for burger parameter setColumn
+      [
+         "devoured"
+      ],
+      // value for burger parameter devoured 
+      [
+         1
+      ],
+      // value for burger parameter whereColumn
+      [
+         "burger_id"
+      ],
+      // value for burger parameter id
+      [
+         id
+      ],
+      // creating call back function for burger parameter cb 
+      function (result) {
+         if (result.changedRows === 0) {
+            return res.status(404).end();
+         }
+         else {
+            res.status(200).end();
+         }
+      });
 });
+
+router.delete("/api/burgers/:id", function (req, res) {
+   var id = req.params.id;
+
+   burger.delete(
+      [
+         "burger_id"
+      ],
+      [
+         id
+      ],
+      function (response) {
+         if (response.changedRows === 0) {
+            return res.status(404).end();
+         }
+         else {
+            res.status(200).end();
+         }
+      })
+})
 
 // export route to server.js
 module.exports = router;

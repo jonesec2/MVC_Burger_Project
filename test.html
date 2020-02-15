@@ -1,57 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <head>
-      <meta charset="UTF-8">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-         type="text/css" />
-      <script src="https://kit.fontawesome.com/7b4d2fea99.js" crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="/public/assets/css/burger_style.css" type="text/css" />
-      <title>MVC Burgers!</title>
-   </head>
+<head>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      type="text/css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://fonts.googleapis.com/css?family=Faster+One&display=swap" rel="stylesheet">
+   <script src="https://code.jquery.com/jquery.js"></script>
+   <script src="https://kit.fontawesome.com/7b4d2fea99.js" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="/public/assets/css/burger_style.css" type="text/css" />
+   <script src="/public/assets/js/burgers.js"></script>
+   <title>MVC Burgers!</title>
+</head>
+<style>
+   body,
+   html {
+      background-color: rgb(224, 178, 91);
+   }
 
-   <body>
-      <h1 class="text-center">Eat-Da-Burger!</h1>
-      <div style="text-align: center;" class="container mx-auto">
-         <div class="mx-auto"><i class="fas fa-hamburger fa-5x"></i></div>
+   h1,
+   h3,
+   h5 {
+      font-family: 'Faster One', cursive;
+   }
+
+   li {
+      padding: 5px;
+      margin: 5px;
+      background: white;
+      background-color: #ffffff;
+      max-width: 90%;
+   }
+
+   .text {
+      font-family: Arial, Helvetica, sans-serif;
+   }
+
+   button {
+      min-height: 100% !important;
+
+   }
+
+   .borderOne {
+      border-bottom: 0px !important;
+   }
+
+   .borderTwo {
+      border-top: 0px !important;
+   }
+
+   .rounded {
+      border-radius: 0px 0px 50px 50px !important;
+   }
+
+   ol,
+   ul {
+      /* background-color: rgba(206, 148, 39, 0.527); */
+      min-height: 100px;
+      min-width: 100%;
+   }
+
+   .color {
+      background-color: rgba(206, 148, 39, 0.527);
+   }
+
+   @media (min-width: 880px) {
+      .container {
+         max-width: 880px;
+      }
+
+   }
+
+   @media (max-width: 880px) {
+      .text {
+         font-size: 16px
+      }
+   }
+</style>
+
+<body>
+   <div class="container mt-5">
+      <h1 class="text-center pt-5">Eat-Da-Burger!</h1>
+      <h5 class="text-center pb-4">You know you want to </h5>
+      <div class="container mx-auto">
+         <div class="container mx-auto mt-4 border borderOne" style="max-width: 820px;">
+            <div class="row">
+               <div class="col-12 col-md-6 color">
+                  <h5 class="pt-2" style="text-align: center;"> To Be Devoured!
+                     <ol class="py-2 text" style="text-align: left;">
+                        <li class="mb-2">
+                           Big Mac
+                           <div class="float-right">
+                              <button class="change-devoured " data-id="{{this.burger_id}}"
+                                 data-devoured="{{this.devoured}}">
+                                 Devour!
+                              </button><button class="delete" data-id="{{this.burger_id}}"> <i class="fa fa-trash"></i>
+                              </button>
+                           </div>
+                        </li>
+                     </ol>
+                  </h5>
+               </div>
+               <div class="col-12 col-md-6 color ">
+                  <h5 class="pt-2" style="text-align: center;"> Already Eaten!
+                     <ul class="py-2 text" style="text-align: left;">
+                        <li>
+                           Tasty Burger
+                        </li>
+                     </ul>
+                  </h5>
+               </div>
+            </div>
+         </div>
+         <form class="create-form text-center color rounded mx-auto border borderTwo mb-4" style="max-width: 820px;">
+            <h3 class="">Burger Name:</h3>
+            <div class="form-group mb-0">
+               <label for="burger"></label>
+               <textarea id="burger" name="burger_name" placeholder="Write something.."
+                  style="height:100px; width:300px;"></textarea>
+            </div>
+
+            <button type="submit">Add <i class="fas fa-hamburger fa-lg"> </i> </button>
+            <p>Enter the burger you want to devour and press the button</p>
+         </form>
       </div>
-      {{{ body }}}
+   </div>
+   <footer class="page-footer font-small mdb-color lighten-3 pt-4">
       <div class="container">
+
          <div class="row">
-            <div class="col-6">
-               <ol>
-                  {{#each burger}}
-                  {{!try "unless" if "if" doesn't work}}
-                     {{!-- {{#if devoured}}
-                        {{> burgers/burger-block devoured=false}}
-                     {{/if}} --}}
-                  {{/each}}
-               </ol>
-            </div>
-            <div class="col-6">
-               <ul>
-                 {{#each burger}}
-                 {{!try "unless" if "if" doesn't work}}
-                     {{#if devoured}}
-                        {{> burgers/burger-block devoured=true}}
-                     {{/if}}
-                  {{/each}}
-               </ul>
+
+            <div class="col-12">
+               <div class="view overlay z-depth-1-half">
+                  <img src="/public/assets/img/closeup-photography-of-bun-with-cheese-patty-egg-and-bacon-660282.jpg" class="img-fluid"
+                     alt="">
+                  <a href="">
+                     <div class="mask rgba-white-light"></div>
+                  </a>
+               </div>
+
             </div>
          </div>
+
       </div>
-      
-      <form class="create-form text-center">
-         <h3>Burger Name:</h3>
-         <div class="form-group">
-            <label for="burger"></label>
-            <textarea id="burger" name="name" placeholder="Write something.." style="height:100px; width:300px;"></textarea>
-         </div>
-      
-         <button type="submit">Add Burger</button>
-         <p>Enter a burger you want to eat and click the Add Burger button</p>
-      </form>
-      
-   </body>
+
+      <div class="footer-copyright text-center py-3">© 2020 Copyright: Eat-Da-Burger</div>
+   </footer>
+</body>
 
 </html>

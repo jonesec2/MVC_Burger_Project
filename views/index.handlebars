@@ -1,41 +1,69 @@
-<div class="container mx-auto mt-3 pt-3" style="max-width: 720px;">
-   <div class="row">
-      <div class="col-6">
-         <ol>
-            {{#each burger}}
-               {{#unless devoured}}
-                  <li>
-                     {{this.burger_name}}
-                     <button class="change-devoured" data-id="{{this.burger_id}}" data-devoured="{{this.devoured}}">
-                        Devour!
-                     </button>
+<banner class="page-footer mdb-color lighten-3">
+   <div class="row mb-0" style="position:sticky;">
 
-                  </li>
-               {{/unless}}
-            {{/each}}
-         </ol>
+      <div class="col-12">
+
+         <div class="view overlay z-depth-1-half">
+            <img src="assets/img/burger.jpg" class="img-fluid" alt="">
+            <a href="">
+               <div class="mask rgba-white-light"></div>
+            </a>
+         </div>
+
       </div>
-      <div class="col-6">
-         <ul>
-           {{#each burger}}
-               {{#if devoured}}
-                  <li>
-                     {{this.burger_name}}
-                  </li>
-               {{/if}}
-            {{/each}}
-         </ul>
+   </div>
+</banner>
+<div class="container mt-0 ">
+   <h1 class="text-center">Eat-Da-Burger!</h1>
+   <div class="container mx-auto">
+      <div class="container mx-auto mt-4 border borderOne" style="max-width: 820px;">
+         <div class="row">
+            <div class="col-12 col-md-6 color">
+               <h5 class="pt-2" style="text-align: center;"> To Be Devoured!
+                  <ol class="py-2 text" style="text-align: left;">
+                     {{#each burger}}
+                     {{#unless devoured}}
+                     <li class="mb-2">
+                        {{this.burger_name}}
+                        <div class="float-right">
+                           <button class="change-devoured" data-id="{{this.burger_id}}"
+                              data-devoured="{{this.devoured}}">
+                              Devour!
+                           </button><button class="delete" data-id="{{this.burger_id}}"> <i class="fa fa-trash"></i>
+                           </button>
+                        </div>
+                     </li>
+                     {{/unless}}
+                     {{/each}}
+                  </ol>
+               </h5>
+            </div>
+            <div class="col-12 col-md-6 color ">
+               <h5 class="pt-2" style="text-align: center;"> Already Eaten!
+                  <ul class="py-2 text" style="text-align: left;">
+                     {{#each burger}}
+                     {{#if devoured}}
+                     <li>
+                        {{this.burger_name}}
+                     </li>
+                     {{/if}}
+                     {{/each}}
+                  </ul>
+               </h5>
+            </div>
+         </div>
       </div>
+
+      <form class="create-form text-center color rounded mx-auto border borderTwo mb-4" style="max-width: 820px;">
+         <h3 class="">Burger Name:</h3>
+         <div class="form-group mb-0">
+            <label for="burger"></label>
+            <textarea id="burger" name="burger_name" placeholder="Write something.."
+               style="height:100px; width:300px;"></textarea>
+         </div>
+
+         <button type="submit">Add <i class="fas fa-hamburger fa-lg"> </i> </button>
+         <p>Enter the burger you want to devour and press the button</p>
+      </form>
    </div>
 </div>
-
-<form class="create-form text-center">
-   <h3>Burger Name:</h3>
-   <div class="form-group">
-      <label for="burger"></label>
-      <textarea id="burger" name="burger_name" placeholder="Write something.." style="height:100px; width:300px;"></textarea>
-   </div>
-
-   <button type="submit">Add Burger</button>
-   <p>Enter a burger you want to eat and click the Add Burger button</p>
-</form>

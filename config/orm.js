@@ -30,7 +30,7 @@ const orm = {
       queryString += ") ";
 
       console.log("orm " + queryString);
-      connection.query(queryString, values, function(err, result) {
+      connection.query(queryString, values, function (err, result) {
          if (err) {
             throw err;
          }
@@ -43,17 +43,28 @@ const orm = {
    // parameter to receive values from burger
    updateOne: function (table, setColumn, devoured, whereColumn, id, cb) {
       // creating sql query
-      var queryString = "Update " + table + " Set " + setColumn + " = " + devoured +  " where " + whereColumn + " = " + id +";";
+      var queryString = "Update " + table + " Set " + setColumn + " = " + devoured + " where " + whereColumn + " = " + id + ";";
       // sending sql query
       console.log(queryString)
-      connection.query(queryString, function(err, result) {
+      connection.query(queryString, function (err, result) {
          if (err) {
             throw err;
          }
          console.log("ormRes", result);
          // returning results to burger
          cb(result);
-      } )
+      });
+   },
+   delete: function (table, whereColumn, id, cb) {
+      var queryString = "Delete From " + table + " where " + whereColumn + " = " + id + ";";
+      console.log(queryString);
+      connection.query(queryString, function (err, result) {
+         if (err) {
+            throw err;
+         }
+         console.log("ormRes", result);
+         cb(result);
+      });
    }
 
 }

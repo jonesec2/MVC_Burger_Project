@@ -30,7 +30,7 @@ $(function () {
 
       // setting new var equal to id/devoured of burger clicked
       var nowDevoured = {
-         burger_id: id,
+         burger_id: id
          // devoured: 1
       };
       console.log(nowDevoured)
@@ -45,5 +45,19 @@ $(function () {
          }
       )
    });
+
+   $('.delete').on('click', function(event) {
+      var id = $(this).data("id");
+
+      console.log("Now deleting");
+      $.ajax("/api/burgers/" +id, {
+         type: "DELETE",
+      }).then(
+         function() {
+            console.log("returned")
+            location.reload();
+         }
+      )
+   })
 });
 

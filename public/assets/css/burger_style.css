@@ -1,5 +1,12 @@
-body, html { 
+body,
+html {
    background-color: rgb(224, 178, 91);
+}
+
+h1,
+h3,
+h5 {
+   font-family: 'Faster One', cursive;
 }
 
 li {
@@ -7,4 +14,50 @@ li {
    margin: 5px;
    background: white;
    background-color: #ffffff;
+   max-width: 90%;
+}
+
+.text {
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+   min-height: 100% !important;
+
+}
+
+.borderOne {
+   border-bottom: 0px !important;
+}
+
+.borderTwo {
+   border-top: 0px !important;
+}
+
+.rounded {
+   border-radius: 0px 0px 50px 50px !important;
+}
+
+ol,
+ul {
+   /* background-color: rgba(206, 148, 39, 0.527); */
+   min-height: 100px;
+   min-width: 100%;
+}
+
+.color {
+   background-color: rgba(206, 148, 39, 0.527);
+}
+
+@media (min-width: 880px) {
+   .container {
+      max-width: 880px;
+   }
+
+}
+
+@media (max-width: 880px) {
+   .text {
+      font-size: 16px
+   }
 }

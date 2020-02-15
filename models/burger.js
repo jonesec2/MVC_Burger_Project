@@ -20,6 +20,13 @@ var burger = {
          // returning results to burger_controller
          cb(res)
       });
+   },
+   // parameters to receive values from burger_controller
+   delete: function(whereColumn, id, cb) {
+      orm.delete("burgers", whereColumn, id, function(res) {
+         console.log("deleted", res)
+         cb(res)
+      })
    }
 }
 
