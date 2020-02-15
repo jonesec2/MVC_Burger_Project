@@ -67,7 +67,7 @@ router.delete("/api/burgers/:id", function (req, res) {
          id
       ],
       function (response) {
-         if (response.changedRows === 0) {
+         if (response.affectedRows === 0) {
             return res.status(404).end();
          }
          else {
