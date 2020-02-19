@@ -5,6 +5,12 @@ This project showcases the MVC model of development. The burger data is from our
 ## Live Link
 - Launch the application [here](https://dry-thicket-44026.herokuapp.com/)
 
+## Design
+- The site is designed to be intuitve and responsive.
+- A visually appealing banner is the first thing a user would see.
+- The "devour" section is laid out so the user can clearly understand the functionality of the website.
+- Using controllers, models, and orm, we pass information back and forth from client and server. Using the schema and seed will populate results in the "To be devoured" and "Already Eaten" section.
+
 ## Technologies Used
 - Programming Languages: HTML5, CSS3, JavaScript/jQuery, Handlebars, Express, mysql
 - Schema and Seeds included
